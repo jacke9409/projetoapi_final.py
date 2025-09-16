@@ -1,10 +1,6 @@
+## =========================
+# 3️⃣ Cabeçalho principal
 # =========================
-# 2️⃣ Configuração da página
-# =========================
-st.set_page_config(
-    page_title="Games Hub • Infos & Curiosidades",  # Título da aba do navegador
-    page_icon="🎮",                                 # Ícone da aba
-    layout="centered"                               # Layout centralizado
-)
-
-# configuração da pagina
+st.title("🎮 Games Hub: Infos & Curiosidades")
+st.caption(f"Data: {dt.date.today():%d/%m/%Y}")
+st.write("Selecione um jogo para ver informações, destaques e curiosidades.")
