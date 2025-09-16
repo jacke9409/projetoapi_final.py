@@ -1,6 +1,10 @@
-## =========================
-# 3️⃣ Cabeçalho principal
 # =========================
-st.title("🎮 Games Hub: Infos & Curiosidades")
-st.caption(f"Data: {dt.date.today():%d/%m/%Y}")
-st.write("Selecione um jogo para ver informações, destaques e curiosidades.")
+# 4️⃣ Base de dados dos jogos
+# =========================
+# Dicionário que contém informações básicas de cada jogo
+games = {
+    "Minecraft": { ... },  # Informações do Minecraft
+    "The Legend of Zelda: Breath of the Wild": { ... },  # Informações do Zelda
+    "Fortnite": { ... },  # Informações do Fortnite
+    "Roblox": { ... }  # Informações do Roblox
+}
