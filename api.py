@@ -1,22 +1,19 @@
 # =========================
-# 6️⃣ Integração com API do Zelda (somente para BOTW)
+# 7️⃣ Exibição centralizada do card do jogo
 # =========================
-if game == "The Legend of Zelda: Breath of the Wild":
-    try:
-        # 🔹 Buscar monstros
-        url_monsters = "https://botw-compendium.herokuapp.com/api/v2/category/monsters"
-        response_monsters = requests.get(url_monsters)
-        data_monsters = response_monsters.json()
-        monstros_exemplo = [monster['name'] for monster in data_monsters['data'][:5]]
-        info["curiosidades"].extend([f"Monstro no jogo: {m}" for m in monstros_exemplo])
-
-        # 🔹 Buscar armas/equipamentos
-        url_weapons = "https://botw-compendium.herokuapp.com/api/v2/category/equipment"
-        response_weapons = requests.get(url_weapons)
-        data_weapons = response_weapons.json()
-        armas_exemplo = [weapon['name'] for weapon in data_weapons['data'][:5]]
-        info["curiosidades"].extend([f"Arma famosa: {a}" for a in armas_exemplo])
-
-    except Exception as e:
-        st.warning("Não foi possível carregar informações adicionais do Zelda.")
-        print(e)
+# Usamos st.columns para centralizar horizontalmente
+with st.container():
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image(info['imagem'], width=200)  # Imagem do jogo
+        st.markdown(f"## {game}")  # Nome do jogo
+        st.markdown(f"**Gênero:** {info['genero']}")  # Gênero
+        st.markdown(f"**Lançamento:** {info['lancamento']}")  # Ano de lançamento
+        st.markdown(f"[🔗 Página oficial]({info['link']})")  # Link oficial
+        st.markdown("### 📝 Destaques")
+        st.write(info.get("detalhes", "Detalhes não disponíveis."))  # Detalhes do jogo
+        st.markdown("### ✨ Curiosidades")
+        for c in info["curiosidades"]:  # Lista todas as curiosidades
+            st.write(f"- {c}")
+# O Markdown é uma linguagem de marcação simples que o Streamlit interpreta para formatar texto. Ele é
+# usado para títulos, listas, links, negrito, itálico e separadores. No seu projeto, o Markdown é usado em várias partes:
